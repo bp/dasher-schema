@@ -12,6 +12,6 @@
     <Description>Annotations for defining objects to be serialised/deserialised using Dasher, with validation and other schema tooling support.</Description>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="BP.Dasher" Version="0.9.0" />
+    <PackageReference Include="BP.Dasher" Version="0.9.1" />
   </ItemGroup>
 </Project>
