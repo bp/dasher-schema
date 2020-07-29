@@ -10,6 +10,8 @@
     <PackageTags>Dasher Schema</PackageTags>
     <RepositoryType>git</RepositoryType>
     <Description>Annotations for defining objects to be serialised/deserialised using Dasher, with validation and other schema tooling support.</Description>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BP.Dasher" Version="0.9.1" />
