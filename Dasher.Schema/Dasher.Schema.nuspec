@@ -14,7 +14,7 @@
       Annotations for defining objects to be serialised/deserialised using Dasher, with validation and other schema tooling support.
     </description>
     <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
-    <copyright>Copyright Andy Sturrock 2015</copyright>
+    <copyright>Copyright © Andy Sturrock 2015-2020</copyright>
     <tags>Dasher Schema</tags>
   </metadata>
   <files>
