@@ -130,11 +130,11 @@ namespace Dasher.Schema.Comparison.Tests
 
             Assert.Equal("Score", fields[0].Name);
             Assert.Equal("System.Int32", fields[0].Type);
-            Assert.Equal(null, fields[0].DefaultValue);
+            Assert.Null(fields[0].DefaultValue);
 
             Assert.Equal("Name", fields[1].Name);
             Assert.Equal("System.String", fields[1].Type);
-            Assert.Equal(null, fields[1].DefaultValue);
+            Assert.Null(fields[1].DefaultValue);
         }
 
         [Fact]
@@ -148,11 +148,11 @@ namespace Dasher.Schema.Comparison.Tests
 
             Assert.Equal("Score", fields[0].Name);
             Assert.Equal("System.Int32", fields[0].Type);
-            Assert.Equal(null, fields[0].DefaultValue);
+            Assert.Null(fields[0].DefaultValue);
 
             Assert.Equal("Enum", fields[1].Name);
             Assert.Equal("TestEnum", fields[1].Type);
-            Assert.Equal(null, fields[1].DefaultValue);
+            Assert.Null(fields[1].DefaultValue);
         }
 
         [Fact]
