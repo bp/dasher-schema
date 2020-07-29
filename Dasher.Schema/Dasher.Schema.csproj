@@ -3,7 +3,7 @@
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <Copyright>Copyright © Andy Sturrock 2015-2020</Copyright>
     <PackageId>BP.Dasher.Schema</PackageId>
-    <Version>2.1.0.0</Version>
+    <Version>2.1.1.0</Version>
     <Authors>Andy Sturrock</Authors>
     <PackageProjectUrl>https://github.com/andysturrock/dasher-schema</PackageProjectUrl>
     <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseUrl>
