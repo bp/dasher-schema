@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Dasher.Schema.Generation.TestRefAssembly;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Dasher.Schema.Generation.TestRefAssembly;
 using Xunit;
 
 namespace Dasher.Schema.Generation.Tests
@@ -53,27 +53,28 @@ namespace Dasher.Schema.Generation.Tests
         [Fact]
         public void SerialiseTest()
         {
-            Assert.True(_dasherAssemblyInfo.SerialisableTypes.Any(o => o.Name == "DummySerialisable"));
-            Assert.True(_dasherAssemblyInfo.SerialisableTypes.Any(o => o.Name == "BaseSerialiseDeserialise"));
-            Assert.True(_dasherAssemblyInfo.SerialisableTypes.Any(o => o.Name == "DummySerialiseDeserialise"));
-            Assert.True(_dasherAssemblyInfo.SerialisableTypes.Any(o => o.Name == "DerivedSerialiseOnly"));
-            Assert.False(_dasherAssemblyInfo.SerialisableTypes.Any(o => o.Name == "DummyDeserialiseOnly"));
+            Assert.Contains(_dasherAssemblyInfo.SerialisableTypes, o => o.Name == "DummySerialisable");
+            Assert.Contains(_dasherAssemblyInfo.SerialisableTypes, o => o.Name == "DummySerialisable");
+            Assert.Contains(_dasherAssemblyInfo.SerialisableTypes, o => o.Name == "BaseSerialiseDeserialise");
+            Assert.Contains(_dasherAssemblyInfo.SerialisableTypes, o => o.Name == "DummySerialiseDeserialise");
+            Assert.Contains(_dasherAssemblyInfo.SerialisableTypes, o => o.Name == "DerivedSerialiseOnly");
+            Assert.DoesNotContain(_dasherAssemblyInfo.SerialisableTypes, o => o.Name == "DummyDeserialiseOnly");
         }
 
         [Fact]
         public void DeserialiseTest()
         {
-            Assert.True(_dasherAssemblyInfo.DeserialisableTypes.Any(o => o.Name == "DummyDeserialiseOnly"));
-            Assert.True(_dasherAssemblyInfo.DeserialisableTypes.Any(o => o.Name == "BaseSerialiseDeserialise"));
-            Assert.True(_dasherAssemblyInfo.DeserialisableTypes.Any(o => o.Name == "DummySerialiseDeserialise"));
-            Assert.False(_dasherAssemblyInfo.DeserialisableTypes.Any(o => o.Name == "DerivedSerialiseOnly"));
-            Assert.False(_dasherAssemblyInfo.DeserialisableTypes.Any(o => o.Name == "DummySerialisable"));
+            Assert.Contains(_dasherAssemblyInfo.DeserialisableTypes, o => o.Name == "DummyDeserialiseOnly");
+            Assert.Contains(_dasherAssemblyInfo.DeserialisableTypes, o => o.Name == "BaseSerialiseDeserialise");
+            Assert.Contains(_dasherAssemblyInfo.DeserialisableTypes, o => o.Name == "DummySerialiseDeserialise");
+            Assert.DoesNotContain(_dasherAssemblyInfo.DeserialisableTypes, o => o.Name == "DerivedSerialiseOnly");
+            Assert.DoesNotContain(_dasherAssemblyInfo.DeserialisableTypes, o => o.Name == "DummySerialisable");
         }
         [Fact]
         public void BaseClassIgnoreTest()
         {
-            Assert.False(_dasherAssemblyInfo.DeserialisableTypes.Any(o => o.Name == "DerivedSerialiseOnly"));
-            Assert.True(_dasherAssemblyInfo.SerialisableTypes.Any(o => o.Name == "DerivedSerialiseOnly"));
+            Assert.DoesNotContain(_dasherAssemblyInfo.DeserialisableTypes, o => o.Name == "DerivedSerialiseOnly");
+            Assert.Contains(_dasherAssemblyInfo.SerialisableTypes, o => o.Name == "DerivedSerialiseOnly");
         }
 
         [Fact]
@@ -89,8 +90,8 @@ namespace Dasher.Schema.Generation.Tests
             Assert.NotNull(ia);
             Assert.Equal(3, ep.Count);
             Assert.Equal(3, ea.Count);
-            Assert.Equal(1, ip.Count);
-            Assert.Equal(1, ia.Count);
+            Assert.Single(ip);
+            Assert.Single(ia);
         }
 
         [Fact]
@@ -161,7 +162,7 @@ namespace Dasher.Schema.Generation.Tests
             var proxy = new AssemblyWalkerProxy(aw);
             var result = proxy.GetFilteredReferencedAssemblyNames(GetTestAssemblies());
             Assert.NotNull(result);
-            Assert.Equal(1, result.Count());            
+            Assert.Single(result);            
             Assert.Equal("IncludedAssembly", result[0].Name);
         }
 
@@ -172,7 +173,7 @@ namespace Dasher.Schema.Generation.Tests
             var proxy = new AssemblyWalkerProxy(aw);
             var result = proxy.GetFilteredReferencedAssemblyNames(GetTestAssemblies());
             Assert.NotNull(result);
-            Assert.Equal(0, result.Count());
+            Assert.Empty(result);
         }
 
         [Fact]
@@ -182,7 +183,7 @@ namespace Dasher.Schema.Generation.Tests
             var proxy = new AssemblyWalkerProxy(aw);
             var result = proxy.GetFilteredReferencedAssemblyNames(GetTestAssemblies());
             Assert.NotNull(result);
-            Assert.Equal(0, result.Count());
+            Assert.Empty(result);
         }
 
         [Fact]
@@ -192,7 +193,7 @@ namespace Dasher.Schema.Generation.Tests
             var proxy = new AssemblyWalkerProxy(aw);
             var result = proxy.GetFilteredReferencedAssemblyNames(GetTestAssemblies());
             Assert.NotNull(result);
-            Assert.Equal(0, result.Count());
+            Assert.Empty(result);
         }
         private static AssemblyName[] GetTestAssemblies()
         {

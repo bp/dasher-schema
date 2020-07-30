@@ -1,17 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-    <Copyright>Copyright © Andy Sturrock 2015</Copyright>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <Copyright>Copyright © Andy Sturrock 2015-2020</Copyright>
     <PackageId>BP.Dasher.Schema</PackageId>
-    <Version>2.1.0.0</Version>
+    <Version>2.1.1.0</Version>
     <Authors>Andy Sturrock</Authors>
     <PackageProjectUrl>https://github.com/andysturrock/dasher-schema</PackageProjectUrl>
     <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseUrl>
     <PackageTags>Dasher Schema</PackageTags>
     <RepositoryType>git</RepositoryType>
     <Description>Annotations for defining objects to be serialised/deserialised using Dasher, with validation and other schema tooling support.</Description>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="BP.Dasher" Version="0.9.0" />
+    <PackageReference Include="BP.Dasher" Version="0.9.1" />
   </ItemGroup>
 </Project>
